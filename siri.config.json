@@ -1,0 +1,17 @@
+{
+    "authors": {
+        "john.smith@example.com": {
+            "factor": 1.0
+        }
+    },
+    "code-files": [
+        ".h",
+         ".m",
+         ".mm",
+         ".swift"
+    ],
+    "resource-files": [
+        ".plist",
+        ".strings"
+    ]
+}

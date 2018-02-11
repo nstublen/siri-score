@@ -10,6 +10,7 @@
 # This may require elevated privileges through sudo.
 
 import argparse
+import json
 import os
 
 try:
@@ -19,14 +20,15 @@ except ImportError:
     exit()
 
 
-siri_authors = {
-    "john.smith@example.com": {
-        "factor": 1.0
-    }
-}
+siri_authors = {}
+code_files = []
+resource_files = []
 
-code_files = [".h", ".m", ".mm", ".swift"]
-resource_files = [".plist", ".strings"]
+with open("siri.config.json") as json_data:
+    config = json.load(json_data)
+    siri_authors = config["authors"]
+    code_files = config["code-files"]
+    resource_files = config["resource-files"]
 
 class AuthorStats:
     def __init__(self):
